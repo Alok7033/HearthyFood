@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Healthy Food</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background pic/loginpic.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .signup-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 55px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .signup-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .signup-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 100px;
+        }
+
+        .signup-container input[type="submit"] {
+            width: 50%;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .signup-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .signup-container a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .signup-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-container">
+        <h1>Signup</h1>
+
+        <form id="signupForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+            <input type="submit" value="Signup">
+        </form>
+
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (phone.length !== 10) {
+                alert("Enter valid phone number");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+
+            // Demo success
+            alert("Signup Successful!");
+
+            // Redirect to login page
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+
+</html>
